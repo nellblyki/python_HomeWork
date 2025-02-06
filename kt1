@@ -1,0 +1,8 @@
+email = True
+while email:
+    proverka = input('Напишите адрес электронной почты: ')
+    if '@' in proverka and '.' in proverka:
+        print('Ваша почта введена правильно.')
+        break 
+    else:
+        print('Ваша почта введена неверно, попробуйте написать снова.')
