@@ -198,7 +198,7 @@ def Nearest_Number(arr, target):
             
     return nearest
 
-arr = [17, 4, 7, 10, 11, 12]
+arr = [12,15,3,6,13,1]
 user_inp = input("Введите число: ")
 print(Nearest_Number(arr, user_inp))
 """
