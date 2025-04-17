@@ -154,7 +154,7 @@ def removeElByIndex(original_list, index1, index2):
     return original_list
 
 # Исходный список
-my_list = [1, 44, 7, 9, 3, 2, 1, 44]
+my_list = [1, 22, 33, 3, 44, 5, 55]
 
 input_index = input("Введите два индекса, разделенные запятой: ")
 index1, index2 = map(int, input_index.split(','))
