@@ -1,3 +1,100 @@
+#номер 1
+'''
+input = input()
+newarr = ""
+for i in range(len(input) -1, -1, -1):
+    newarr += input[i]
+if input == newarr:
+    print("Строка является палиндромом.")
+else:
+    print("Строка не является палиндромом.")
+'''
+#номер 2 
+''''
+number = input("Введите трехзначное число: ")
+if len(number) == 3:
+    sotni = number[0]  
+    tens = number[1]      
+    odins = number[2]     
+    print(f"Сотни - {sotni}, десятки - {tens}, единицы - {odins}")
+else:
+    print("Ошибка: Пожалуйста, введите корректное трехзначное число.")
+'''
+#номер 3  
+''''
+def task3(a, b):
+    return list(set(a) & set(b))
+a = [1, 2, 3, 4, 5]
+b = [4, 5, 6, 7]
+res = task3(a, b)
+print(res)
+'''
+#номер 7
+'''
+def scrabble(word):
+    
+    points = {
+        1: 'AEIOULNSTR',
+        2: 'DG',
+        3: 'BCMP',
+        4: 'FHVWY',
+        5: 'K',
+        8: 'JZ',
+        10: 'QX'
+    }
+
+    score = 0  
+
+    for key in word:
+        for point, i in points.items():
+            if key in i:
+                score += point  
+
+    return score
+word = input("Введите слово для подсчета очков в Скрабле: ")
+score = scrabble(word)
+print(f"Слово '{word}' набирает {score} очков.")
+'''
+#номер 4
+''''
+def nomer4(strings):
+    max_length = max(len(i) for i in strings)
+    return [i + '_' * (max_length - len(i)) for i in strings]
+
+# Пример использования
+input_strings = ["apple", "banana", "kiwi", "grapefruit"]
+result = nomer4(input_strings)
+
+print(result)  # ['apple_____', 'banana____', 'kiwi_____', 'grapefruit']
+'''
+#nomer 5 
+def nomer4(grades_input):
+    grades = list(map(int, grades_input.split(',')))
+    
+    filtered_grades = []
+    skip_next = False 
+
+    for i in range(len(grades)):
+        if skip_next:
+            skip_next = False
+            continue
+        
+        if grades[i] == 2:
+            if i + 1 < len(grades) and grades[i + 1] != 2:
+                skip_next = True 
+                continue
+        
+        filtered_grades.append(grades[i])
+
+    if not filtered_grades:
+        return 0
+    
+    average_grade = round(sum(filtered_grades) / len(filtered_grades))
+    return average_grade
+
+grades_input = input("Введите оценки через запятую: ")
+final_grade = nomer4(grades_input)
+print(f"Итоговая оценка за четверть: {final_grade}")
 # 6 Реализуйте программу-викторину, в которой пользователь может отвечать на вопросы по различным темам. Создайте список вопросов и ответов, затем используйте циклы и условные операторы для проверки правильности ответа.
 """
 def quiz():
@@ -23,37 +120,6 @@ def quiz():
 
 quiz()
 """
-
-# 7 В настольной игре Скрабл (Scrabble) каждая буква имеет определенную ценность. В случае с английским алфавитом очки распределяются так, как в словаре ниже. Напишите программу, которая вычисляет стоимость введенного пользователем слова. Будем считать, что на вход подается только одно слово, которое содержит либо только английские буквы.
-"""
-def Scrabble(word):
-    points = {
-        1: 'AEIOULNSTR',
-        2: 'DG',
-        3: 'BCMP',
-        4: 'FHVWY',
-        5: 'K',
-        8: 'JZ',
-        10: 'QX'
-    }
-    
-    score_map = {}
-    for score, letters in points.items():
-        for letter in letters:
-            score_map[letter] = score
-
-    total_score = 0
-    for letter in word.upper():  
-        if letter in score_map:
-            total_score += score_map[letter]
-
-    return total_score
-
-user_word = input("Введите слово: ")
-word_score = Scrabble(user_word)
-print(f"Стоимость слова '{user_word}': {word_score} очков.")
-"""
-
 # 8 Напишите программу, которая будет создавать список из двух по следующему примеру: [1, 2, 3] (+) [11, 22, 33] -> [1, 11, 2, 22, 3, 33]
 """
 def merge_lists(list1, list2):
@@ -65,7 +131,7 @@ def merge_lists(list1, list2):
         merged_list.append(list2[i])
     
     if len(list1) > min_length:
-        merged_list.extend(list1[min_length:]) # extend добавляет все выделенные элементы в конец массива
+        merged_list.extend(list1[min_length:])
     elif len(list2) > min_length:
         merged_list.extend(list2[min_length:])
 
